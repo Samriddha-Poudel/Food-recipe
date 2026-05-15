@@ -3,6 +3,14 @@ function searchrecipie(){
     const recipesdiv=document.getElementById("recipes");
     const notfounddiv=document.getElementById("notfound");
 
+
+if(searchInput.trim()=== ""){
+    notfounddiv.innerHTML="Please enter a recipie .";
+    notfounddiv.style.display="block";
+    return
+}
+
+
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
     .then(response => response.json())
     .then(data => {
@@ -23,7 +31,7 @@ function searchrecipie(){
                 card.innerHTML=`
 <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
 <h3>${meal.strMeal} </h3>
-<button> View Recipes</button>
+<button onclick="viewrecipes('${meal.idMeal}')"> View Recipes</button>
 
                 `;
                 recipesdiv.appendChild(card);
@@ -32,4 +40,27 @@ function searchrecipie(){
             
         }
     })
+}
+
+
+function viewrecipes(mealID){
+
+    const popup=document.getElementById("popup");
+    const recipietitle=document.getElementById("recipietitle");
+    const recipiedetails=document.getElementById("details");
+
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
+
+.then (response => response.json())
+.then (data => {
+
+    const meal=data.meals[0];
+    recipietitle.innerText = meal.strMeal;
+    recipiedetails.innerText= meal.strInstructions;
+popup.style.display="block";
+})
+
+
+
+
 }
