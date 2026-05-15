@@ -31,6 +31,8 @@ if(searchInput.trim()=== ""){
                 card.innerHTML=`
 <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
 <h3>${meal.strMeal} </h3>
+<p>${meal.strCategory}</p>
+<p>${meal.strArea}</p>
 <button onclick="viewrecipes('${meal.idMeal}')"> View Recipes</button>
 
                 `;
@@ -63,4 +65,10 @@ popup.style.display="block";
 
 
 
+}
+
+
+
+function closepopup(){
+    document.getElementById("popup").style.display="none";
 }

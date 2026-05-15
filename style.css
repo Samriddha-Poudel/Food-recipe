@@ -134,5 +134,50 @@ text-align:center;
 background: white;
 position:fixed;
 top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+padding:20px;
+width:320px;
+height:380px;
+z-index:10;
+border: 2px solid red;
+display:none;
+overflow-y:auto;
+border-radius:9px;
+}
 
+
+
+.popcard h4{
+    margin:13px 0;
+    color:#986C6A;
+    font-size: 25px;
+
+}
+
+
+
+.popupcard p{
+    margin: 10px 0;
+    font-size: 30px;
+    max-height: 200px;
+    padding-right:10px;
+    font-weight:700px;
+
+
+}
+
+
+
+.btn{
+position:absolute;
+top:20px;
+right:20px;
+background:#685a8d;
+border:0;
+border-radius: 4px;
+color: white;
+padding:5px;
+cursor:pointer;
+width: 50px;
 }
